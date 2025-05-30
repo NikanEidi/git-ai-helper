@@ -2,6 +2,7 @@ from prompt_toolkit import PromptSession
 from prompt_toolkit.completion import Completer, Completion
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 from prompt_toolkit.formatted_text import HTML
+from prompt_toolkit.history import FileHistory
 from commands_data import GIT_COMMANDS
 from rich.console import Console
 import subprocess
@@ -9,7 +10,6 @@ from ai_suggester import suggest_ai
 import shlex
 
 console = Console()
-session = PromptSession()
 
 class GitCommandCompleter(Completer):
     def get_completions(self, document, complete_event):
@@ -19,6 +19,14 @@ class GitCommandCompleter(Completer):
                 display = f"{cmd} — {desc}"
                 yield Completion(cmd, start_position=-len(word), display=display)
 
+completer = GitCommandCompleter()
+session = PromptSession(
+    completer=completer,
+    history=FileHistory(".git_ai_history"),
+    auto_suggest=AutoSuggestFromHistory(),
+    complete_while_typing=True
+)
+
 def print_help():
     console.print("\n[bold cyan]Git Commands Help Menu[/bold cyan]\n")
     for cmd, desc in GIT_COMMANDS.items():
@@ -27,15 +35,11 @@ def print_help():
 
 def main():
     console.print("[bold green]Git AI Helper[/bold green] - Type a Git command (type 'help' or 'exit')\n")
-    completer = GitCommandCompleter()
 
     while True:
         try:
             user_input = session.prompt(
-                HTML('<ansiblue><b>>> </b></ansiblue>'),
-                completer=completer,
-                auto_suggest=AutoSuggestFromHistory(),
-                complete_while_typing=True
+                HTML('<ansiblue><b>>> </b></ansiblue>')
             ).strip()
 
             if not user_input:
@@ -79,13 +83,27 @@ def main():
                 continue
 
             base_cmd = ' '.join(tokens[:2]) if len(tokens) >= 2 else tokens[0]
+
             if base_cmd in GIT_COMMANDS:
                 console.print(f"[cyan]Description:[/cyan] {GIT_COMMANDS[base_cmd]}")
+
+                if base_cmd == "git commit" and "-m" not in tokens:
+                    console.print("[red] You must provide a commit message using -m \"your message\"[/red]")
+                    continue
+
                 console.print("[yellow]Running command...[/yellow]\n")
                 try:
-                    subprocess.run(tokens, check=True)
+                    result = subprocess.run(tokens, check=True, text=True, capture_output=True)
+                    if result.stdout:
+                        console.print(result.stdout)
+                except subprocess.CalledProcessError as e:
+                    stderr = e.stderr.lower() if e.stderr else ""
+                    if "does not have any commits yet" in stderr:
+                        console.print("[yellow] No commits yet. Use 'git add' and try again.[/yellow]")
+                    else:
+                        console.print(f"[red]Error running command:[/red] {e.stderr.strip() if e.stderr else str(e)}")
                 except Exception as e:
-                    console.print(f"[red]Error running command:[/red] {e}")
+                    console.print(f"[red]Unexpected error:[/red] {e}")
             else:
                 suggestion, desc = suggest_ai(user_input)
                 if suggestion:
