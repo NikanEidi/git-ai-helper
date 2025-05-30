@@ -1,5 +1,5 @@
 from rapidfuzz import process
-from commands_data import GIT_COMMANDS
+from .commands_data import GIT_COMMANDS
 import os
 
 def suggest_ai(input_command):

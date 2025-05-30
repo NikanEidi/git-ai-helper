@@ -3,11 +3,13 @@ from prompt_toolkit.completion import Completer, Completion
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 from prompt_toolkit.formatted_text import HTML
 from prompt_toolkit.history import FileHistory
-from commands_data import GIT_COMMANDS
 from rich.console import Console
 import subprocess
-from ai_suggester import suggest_ai
 import shlex
+
+
+from .commands_data import GIT_COMMANDS
+from .ai_suggester import suggest_ai
 
 console = Console()
 
@@ -38,9 +40,7 @@ def main():
 
     while True:
         try:
-            user_input = session.prompt(
-                HTML('<ansiblue><b>>> </b></ansiblue>')
-            ).strip()
+            user_input = session.prompt(HTML('<ansiblue><b>>> </b></ansiblue>')).strip()
 
             if not user_input:
                 continue

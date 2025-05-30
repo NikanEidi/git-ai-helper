@@ -1,0 +1,12 @@
+README.md
+setup.py
+git_ai_helper/__init__.py
+git_ai_helper/__main__.py
+git_ai_helper/ai_suggester.py
+git_ai_helper/commands_data.py
+git_ai_helper.egg-info/PKG-INFO
+git_ai_helper.egg-info/SOURCES.txt
+git_ai_helper.egg-info/dependency_links.txt
+git_ai_helper.egg-info/entry_points.txt
+git_ai_helper.egg-info/requires.txt
+git_ai_helper.egg-info/top_level.txt
