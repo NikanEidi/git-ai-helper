@@ -2,7 +2,7 @@
 
 set -e
 
-REPO_URL="https://github.com/YOUR_USERNAME/git-ai-helper"
+REPO_URL="https://github.com/NikanEidi/git-ai-helper"
 INSTALL_DIR="$HOME/.git-ai-helper"
 ALIAS_NAME="git-ai"
 SHELL_PROFILE=""
