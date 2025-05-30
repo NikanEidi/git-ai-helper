@@ -14,7 +14,7 @@ For example:
 
 The AI logic is implemented via `ai_suggester.py`, which uses semantic matching and command similarity detection to make accurate recommendations.
 
-*Note: This is a lightweight AI logic designed for CLI use — not a large language model like ChatGPT.*
+> ⚠️ This is a lightweight, local AI logic — not a large language model like ChatGPT.
 
 ---
 
@@ -47,17 +47,21 @@ Using `wget`:
 bash <(wget -qO- https://raw.githubusercontent.com/NikanEidi/git-ai-helper/main/install.sh)
 ```
 
-✅ After installation, you can run the app by typing `git-ai`.
+✅ After installation, run the app using:
+
+```bash
+git-ai
+```
 
 ---
 
 ## ⚙️ Prerequisites
 
-- Python 3.8+
+- Python 3.8 or higher
 - Git installed
 - Recommended shell: `bash` or `zsh`
 
-The installer will automatically install required Python packages:
+The installer will automatically handle Python packages:
 
 - `prompt_toolkit`
 - `rich`
@@ -72,7 +76,7 @@ Once installed, simply run:
 git-ai
 ```
 
-You'll see an interactive prompt like this:
+You’ll see an interactive prompt:
 
 ```
 Git AI Helper - Type a Git command (type 'help' or 'exit')
@@ -80,13 +84,15 @@ Git AI Helper - Type a Git command (type 'help' or 'exit')
 >>> git status
 ```
 
-You can start typing Git commands and use [Tab] for suggestions or type `help` to see all available commands.
+You can type commands like `git status`, `git push`, `git commit`, and press **[Tab]** to get suggestions and completions.
+
+Type `help` to see a full list of available commands.
 
 ---
 
 ## 🛠 Supported Commands
 
-Examples of supported commands:
+Git AI Helper understands and assists with all major Git operations:
 
 - `git init`
 - `git clone`
@@ -103,30 +109,49 @@ Examples of supported commands:
 - `git rebase`
 - `git stash`
 - `git tag`
-- `git setup your_name your_email` — quick config helper
+- `git setup your_name your_email` – quick config for Git identity
 
 ---
 
 ## 🧠 AI Suggestions
 
-If you type something that’s not a valid Git command, Git AI Helper will try to guess what you meant and help you fix it.
+Mistyped a command? No problem.
+
+Try:
+
+```bash
+>>> git cmomit
+```
+
+And Git AI Helper will respond:
+
+```
+Did you mean: git commit?
+Description: Record changes with a message
+```
 
 ---
 
 ## 🤝 Contributing
 
-Have ideas for features? Found a bug?  
-Pull requests are welcome! Fork the repo and submit a PR.
+Have ideas? Found bugs? Want to improve AI suggestions?
+
+Pull requests are welcome!
+
+1. Fork the repo  
+2. Make changes  
+3. Submit a PR  
 
 ---
 
 ## 👤 Author
 
-Created with ❤️ by Nikan Eidi  
-GitHub: [https://github.com/NikanEidi](https://github.com/NikanEidi/git-ai-helper)
+Created with ❤️ by **Nikan Eidi**  
+GitHub: [https://github.com/NikanEidi](https://github.com/NikanEidi)
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.  
+See the [LICENSE](LICENSE) file for details.
