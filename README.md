@@ -20,14 +20,14 @@ The AI logic is implemented via `ai_suggester.py`, which uses semantic matching 
 
 ## 🚀 Features
 
-- 🔍 Autocomplete for common Git commands
-- 🤖 AI-based suggestions for mistyped or incomplete commands
-- 📚 Helpful descriptions for every Git command
-- 🧠 Learns your Git history for smarter auto-suggestions
-- 🛠️ Easy `git setup` for name/email configuration
-- 📂 Covers all major Git operations: `push`, `pull`, `branch`, `merge`, `remote`, and more
-- 🧵 Command history persists between sessions
-- 🎯 Use it anywhere by typing `git-ai` in your terminal
+- 🔍 Autocomplete for common Git commands  
+- 🤖 AI-based suggestions for mistyped or incomplete commands  
+- 📚 Helpful descriptions for every Git command  
+- 🧠 Learns your Git history for smarter auto-suggestions  
+- 🛠️ Easy `git setup` for name/email configuration  
+- 📂 Covers all major Git operations: `push`, `pull`, `branch`, `merge`, `remote`, and more  
+- 🧵 Command history persists between sessions  
+- 🎯 Use it anywhere by typing `git-ai` in your terminal  
 
 ---
 
@@ -38,13 +38,13 @@ Open your terminal and run one of the following:
 Using `curl`:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/git-ai-helper/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/NikanEidi/git-ai-helper/main/install.sh)
 ```
 
 Using `wget`:
 
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/git-ai-helper/main/install.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/NikanEidi/git-ai-helper/main/install.sh)
 ```
 
 ✅ After installation, you can run the app by typing `git-ai`.
@@ -122,8 +122,8 @@ Pull requests are welcome! Fork the repo and submit a PR.
 
 ## 👤 Author
 
-Created with ❤️ by Nikan Eidi 
-GitHub: [https://github.com/YOUR_GITHUB_USERNAME](https://github.com/YOUR_GITHUB_USERNAME)
+Created with ❤️ by Nikan Eidi  
+GitHub: [https://github.com/NikanEidi](https://github.com/NikanEidi/git-ai-helper)
 
 ---
 

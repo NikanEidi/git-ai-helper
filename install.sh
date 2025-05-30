@@ -2,7 +2,7 @@
 
 set -e
 
-REPO_URL="https://github.com/NikanEidi/git-ai-helper"
+REPO_URL="https://github.com/NikanEidi/git-ai-helper.git"
 INSTALL_DIR="$HOME/.git-ai-helper"
 VENV_DIR="$INSTALL_DIR/venv"
 ALIAS_NAME="git-ai"
@@ -13,8 +13,13 @@ if [ -n "$ZSH_VERSION" ]; then
     SHELL_PROFILE="$HOME/.zshrc"
 elif [ -n "$BASH_VERSION" ]; then
     SHELL_PROFILE="$HOME/.bashrc"
+elif [ -f "$HOME/.bashrc" ]; then
+    SHELL_PROFILE="$HOME/.bashrc"
+elif [ -f "$HOME/.zshrc" ]; then
+    SHELL_PROFILE="$HOME/.zshrc"
 else
     echo "Unsupported shell. Please manually add the alias to your shell profile."
+    exit 1
 fi
 
 # Clone or pull latest repo
