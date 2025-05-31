@@ -33,18 +33,10 @@ The AI logic is implemented via `ai_suggester.py`, which uses semantic matching 
 
 ## 📦 Installation (1-line setup for macOS, Linux, WSL)
 
-Open your terminal and run one of the following:
-
-Using `curl`:
+Open your terminal and run the following:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/NikanEidi/git-ai-helper/main/install.sh)
-```
-
-Using `wget`:
-
-```bash
-bash <(wget -qO- https://raw.githubusercontent.com/NikanEidi/git-ai-helper/main/install.sh)
+pip install git+https://github.com/NikanEidi/git-ai-helper.git
 ```
 
 ✅ After installation, run the app using:
